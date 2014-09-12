@@ -16,8 +16,8 @@ CUSTOS_TESTS  = custos_client_test custos_http_test custos_json_test custos_deco
 # Static Libraries
 CUSTOS_LIB         = libcustos.a
 CUSTOS_LIB_OBJECTS = custos_client.o custos_client_print.o \
-	             custos_http.o custos_json.o \
-	             ../libb64-1.2.1/src/cdecode.o ../libb64-1.2.1/src/cencode.o
+	                 custos_http.o custos_json.o \
+	                 ../../libb64-1.2.1/src/cdecode.o ../../libb64-1.2.1/src/cencode.o
 
 CFLAGSUUID    = `pkg-config uuid --cflags`
 LLIBSUUID     = `pkg-config uuid --libs`
@@ -86,11 +86,11 @@ custos_decode_test.o: custos_decode_test.c custos_json.h custos_http.h
 curl_example.o: curl_example.c
 	$(CC) $(CFLAGS) $(CFLAGSCURL) $<
 
-../libb64-1.2.1/src/cdecode.o:
-	$(MAKE) -C ../libb64-1.2.1 all_src
+../../libb64-1.2.1/src/cdecode.o:
+	$(MAKE) -C ../../libb64-1.2.1 all_src
 
-../libb64-1.2.1/src/cencode.o:
-	$(MAKE) -C ../libb64-1.2.1 all_src
+../../libb64-1.2.1/src/cencode.o:
+	$(MAKE) -C ../../libb64-1.2.1 all_src
 
 clean:
 	rm -f $(CURL_EXAMPLES)
@@ -98,4 +98,4 @@ clean:
 	rm -f *.a
 	rm -f *.o
 	rm -f *~
-	$(MAKE) -C ../libb64-1.2.1 clean_src
+	$(MAKE) -C ../../libb64-1.2.1 clean_src
